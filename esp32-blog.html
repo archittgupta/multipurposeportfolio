@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESP32 High Voltage — Archit</title>
+    <style>
+        /* --- GLOBAL STYLES (Inherited) --- */
+        @font-face { font-family: 'TTCommonsLocal'; src: url('./fonts/Fontspring-DEMO-tt_commons_pro_regular.otf'); }
+        @font-face { font-family: 'HelveticaLocal'; src: url('./fonts/Helvetica-Bold.ttf'); font-weight: 700; }
+        
+        body {
+            background-color: #050505;
+            color: #E6E3D8;
+            font-family: 'TTCommonsLocal', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- NAV --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: #888;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .back-link:hover { color: #ff6b35; }
+
+        /* --- ARTICLE HERO --- */
+        .article-hero {
+            max-width: 800px;
+            margin: 4rem auto 2rem;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .article-meta {
+            font-size: 0.8rem;
+            color: #ff6b35;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .article-title {
+            font-family: 'HelveticaLocal', sans-serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            color: white;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 4rem;
+            opacity: 0.9;
+            background-color: #1a1a1a;
+        }
+
+        /* --- CONTENT AREA --- */
+        .content {
+            max-width: 740px;
+            margin: 0 auto;
+            padding: 0 2rem 6rem;
+            font-size: 1.15rem;
+            color: #ccc;
+        }
+
+        .content p { margin-bottom: 2rem; }
+        
+        .content h2 {
+            color: white;
+            font-size: 1.8rem;
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+            font-family: 'HelveticaLocal', sans-serif;
+        }
+
+        .content h3 {
+            color: #ff6b35;
+            font-size: 1.2rem;
+            margin-top: 2rem;
+            font-family: 'TTCommonsLocal', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .content ul {
+            margin-bottom: 2rem;
+            padding-left: 1.5rem;
+        }
+
+        .content li {
+            margin-bottom: 0.5rem;
+            color: #ccc;
+        }
+
+        .content code {
+            background: rgba(255,255,255,0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            color: #ff6b35;
+            font-size: 0.9em;
+        }
+
+        .warning-box {
+            border: 1px solid #ff6b35;
+            background: rgba(255, 107, 53, 0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            color: #ffae8a;
+            font-size: 0.95rem;
+        }
+
+        /* --- FOOTER / NEXT --- */
+        .next-section {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        .next-btn {
+            display: inline-block;
+            padding: 1rem 3rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 50px;
+            color: white;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            transition: all 0.3s;
+        }
+        .next-btn:hover {
+            background: #ff6b35;
+            border-color: #ff6b35;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="back-link">← Back to Home</a>
+        <span style="font-size: 0.8rem; color:#444;">IOT / HARDWARE</span>
+    </nav>
+
+    <article>
+        <header class="article-hero">
+            <span class="article-meta">November 16, 2025 • Embedded Systems</span>
+            <h1 class="article-title">Taming the Beast: Controlling 220V with Logic Levels</h1>
+        </header>
+
+        <div class="content">
+            <p>
+                <b>Microcontrollers live in a safe, quiet world.</b> An ESP32 operates at 3.3V logic. It’s precise, low-energy, and harmless. The real world, however, runs on 220V Mains AC (in India). It is noisy, dangerous, and powerful.
+            </p>
+            <p>
+                My goal was simple: Turn a "dumb" extension board into a smart one. I wanted to control my desk setup (monitors, lights, chargers) directly from my phone or a web dashboard, without buying expensive proprietary smart plugs.
+            </p>
+
+            <div class="warning-box">
+                <b>⚠️ SAFETY WARNING:</b> Mains voltage (110V/220V) can be lethal. Do not attempt to wire relays to mains power unless you understand isolation and electrical safety.
+            </div>
+            
+            <h2>The Bridge: Relays & Isolation</h2>
+            <p>
+                You cannot connect an AC appliance to a microcontroller pin. The magic component that bridges these two worlds is the <b>Relay</b>.
+            </p>
+            <p>
+                For this project, I used a 4-Channel Relay Module. The concept is straightforward but ingenious:
+            </p>
+            <ul>
+                <li>The ESP32 sends a tiny 3.3V signal to the relay module.</li>
+                <li>An <b>Optocoupler</b> inside the module uses light to transmit that signal, keeping the high voltage electrically isolated from the low voltage logic (protecting the ESP32 from frying).</li>
+                <li>The electromagnet clicks on, closing the high-voltage circuit and powering the appliance.</li>
+            </ul>
+
+            <h2>The Brain: ESP32 Web Server</h2>
+            <p>
+                While I could have used Blynk or Home Assistant, I wanted to build the control logic myself. I programmed the ESP32 using the Arduino IDE to host an <code>AsyncWebServer</code>.
+            </p>
+            <p>
+                The ESP32 creates a local IP address. When I visit that IP on my phone, it serves a simple HTML interface with toggle buttons. Clicking a button sends an HTTP GET request to the ESP32, which flips the corresponding GPIO pin.
+            </p>
+
+            <h3>Key Learnings</h3>
+            <p>
+                The biggest challenge wasn't the code—it was the physical space. Fitting an ESP32, a bulky relay module, and a 5V buck converter (to step down 220V to power the ESP itself) inside a standard extension box is a puzzle of geometry and heat management.
+            </p>
+        </div>
+    </article>
+
+    <section class="next-section">
+        <p style="color: #666; margin-bottom: 1rem;">READ NEXT</p>
+        <a href="index.html" class="next-btn">View All Projects</a>
+    </section>
+
+</body>
+</html>

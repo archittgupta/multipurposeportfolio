@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5DOF Robotic Arm — Archit</title>
+    <style>
+        /* --- GLOBAL STYLES (Inherited) --- */
+        @font-face { font-family: 'TTCommonsLocal'; src: url('./fonts/Fontspring-DEMO-tt_commons_pro_regular.otf'); }
+        @font-face { font-family: 'HelveticaLocal'; src: url('./fonts/Helvetica-Bold.ttf'); font-weight: 700; }
+        
+        body {
+            background-color: #050505;
+            color: #E6E3D8;
+            font-family: 'TTCommonsLocal', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- NAV --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: #888;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .back-link:hover { color: #ff6b35; }
+
+        /* --- ARTICLE HERO --- */
+        .article-hero {
+            max-width: 800px;
+            margin: 4rem auto 2rem;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .article-meta {
+            font-size: 0.8rem;
+            color: #ff6b35;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .article-title {
+            font-family: 'HelveticaLocal', sans-serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            color: white;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 4rem;
+            opacity: 0.9;
+            /* Placeholder styling to ensure it looks good */
+            background-color: #1a1a1a;
+        }
+
+        /* --- CONTENT AREA --- */
+        .content {
+            max-width: 740px;
+            margin: 0 auto;
+            padding: 0 2rem 6rem;
+            font-size: 1.15rem;
+            color: #ccc;
+        }
+
+        .content p { margin-bottom: 2rem; }
+        
+        .content h2 {
+            color: white;
+            font-size: 1.8rem;
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+            font-family: 'HelveticaLocal', sans-serif;
+        }
+
+        .content h3 {
+            color: #ff6b35;
+            font-size: 1.2rem;
+            margin-top: 2rem;
+            font-family: 'TTCommonsLocal', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .content ul {
+            margin-bottom: 2rem;
+            padding-left: 1.5rem;
+        }
+
+        .content li {
+            margin-bottom: 0.5rem;
+            color: #ccc;
+        }
+
+        .content code {
+            background: rgba(255,255,255,0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            color: #ff6b35;
+            font-size: 0.9em;
+        }
+
+        /* --- FOOTER / NEXT --- */
+        .next-section {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        .next-btn {
+            display: inline-block;
+            padding: 1rem 3rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 50px;
+            color: white;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            transition: all 0.3s;
+        }
+        .next-btn:hover {
+            background: #ff6b35;
+            border-color: #ff6b35;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="back-link">← Back to Home</a>
+        <span style="font-size: 0.8rem; color:#444;">ENGINEERING / ROBOTICS</span>
+    </nav>
+
+    <article>
+        <header class="article-hero">
+            <span class="article-meta">December 25, 2025 • Engineering</span>
+            <h1 class="article-title">From Concept to Kinematics: Building a 5DOF Robotic Arm</h1>
+        </header>
+
+        <div style="max-width: 1000px; margin: 0 auto; padding: 0 2rem;">
+            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop" class="hero-image" alt="Robotic Arm Work">
+        </div>
+
+        <div class="content">
+            <p>
+                <b>The gap between theory and physical reality is where engineering actually happens.</b> 
+                For my final year project, I decided to bridge that gap by building a 5 Degrees of Freedom (5DOF) robotic arm capable of precise pick-and-place operations.
+            </p>
+            <p>
+                The goal wasn't just to make something move; it was to create a system that could mimic the articulation of a human arm—Base, Shoulder, Elbow, Wrist Pitch, and Wrist Roll—controlled entirely via an <code>Arduino</code> ecosystem.
+            </p>
+            
+            <h2>The Architecture</h2>
+            <p>
+                Building a 5DOF arm requires balancing torque, power distribution, and code efficiency. If the base servo is too weak, the whole structure collapses. If the power supply isn't isolated, the Arduino resets every time a motor stalls.
+            </p>
+
+            <h3>Hardware Stack</h3>
+            <ul>
+                <li><b>Microcontroller:</b> Arduino Uno (ATMega328P)</li>
+                <li><b>Actuators:</b> MG996R High-Torque Metal Gear Servos (for Base/Shoulder) & SG90 (for Gripper)</li>
+                <li><b>Power:</b> Dedicated 5V 10A supply (Common ground with Arduino)</li>
+                <li><b>Material:</b> Acrylic chassis for weight reduction</li>
+            </ul>
+
+            <h2>The Challenge: Inverse Kinematics</h2>
+            <p>
+                The hardest part of this project wasn't the wiring—it was the math. Moving a robot from point A to point B isn't as simple as telling a servo to rotate 90 degrees. You have to calculate the angles of all joints simultaneously to reach a specific coordinate in 3D space.
+            </p>
+            <p>
+                While I initially started with manual potentiometer control for testing, the end goal was to implement a semi-automated path. This required mapping the servo values (0-180) to the physical constraints of the arm to prevent self-collision.
+            </p>
+
+            <h2>Documentation & Research</h2>
+            <p>
+                This project culminated in a research paper detailing the design and implementation of low-cost educational robotics. By using off-the-shelf components like the <code>MG996R</code> and open-source libraries, we demonstrated that high-fidelity articulation doesn't require industrial-grade budgets.
+            </p>
+            <p>
+                The arm is currently operational for objects up to 150g, with a repeatability accuracy of +/- 5mm.
+            </p>
+        </div>
+    </article>
+
+    <section class="next-section">
+        <p style="color: #666; margin-bottom: 1rem;">READ NEXT</p>
+        <a href="index.html" class="next-btn">View All Projects</a>
+    </section>
+
+</body>
+</html>

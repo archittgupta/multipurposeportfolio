@@ -1238,6 +1238,7 @@
         }
 
         @media (max-width: 480px) {
+
             /* ... existing styles ... */
 
             /* 1. Reduce the massive space around the "Initial Portfolio" heading */
@@ -1284,6 +1285,7 @@
         }
 
         @media (max-width: 480px) {
+
             /* ... existing mobile styles ... */
 
             .brands-section {
@@ -1323,6 +1325,7 @@
         }
 
         @media (max-width: 480px) {
+
             /* ... your other mobile styles ... */
 
             /* 1. Decrease the side blur power (Edge Fades) */
@@ -1368,63 +1371,64 @@
         }
 
         /* --- BLOG CARD STYLES --- */
-.blog-card {
-    min-width: 320px;
-    height: 200px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 12px;
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    margin-right: 1rem; /* Spacing between cards */
-}
+        .blog-card {
+            min-width: 320px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-right: 1rem;
+            /* Spacing between cards */
+        }
 
-.blog-card:hover {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: #ff6b35;
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-}
+        .blog-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: #ff6b35;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
 
-.blog-date {
-    font-family: 'TTCommonsLocal', sans-serif;
-    font-size: 0.7rem;
-    color: #ff6b35;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    font-weight: 600;
-}
+        .blog-date {
+            font-family: 'TTCommonsLocal', sans-serif;
+            font-size: 0.7rem;
+            color: #ff6b35;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
 
-.blog-title {
-    font-family: 'HelveticaLocal', sans-serif;
-    font-size: 1.2rem;
-    color: white;
-    font-weight: 700;
-    line-height: 1.3;
-    margin: 0.5rem 0;
-}
+        .blog-title {
+            font-family: 'HelveticaLocal', sans-serif;
+            font-size: 1.2rem;
+            color: white;
+            font-weight: 700;
+            line-height: 1.3;
+            margin: 0.5rem 0;
+        }
 
-.blog-tag {
-    font-family: 'TTCommonsLocal', sans-serif;
-    font-size: 0.7rem;
-    color: #888;
-    background: rgba(255,255,255,0.05);
-    padding: 4px 10px;
-    border-radius: 20px;
-    align-self: flex-start;
-    border: 1px solid rgba(255,255,255,0.05);
-}
+        .blog-tag {
+            font-family: 'TTCommonsLocal', sans-serif;
+            font-size: 0.7rem;
+            color: #888;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 4px 10px;
+            border-radius: 20px;
+            align-self: flex-start;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
 
-/* Update container to align items centrally */
-.carousel-container {
-    align-items: center;
-}
+        /* Update container to align items centrally */
+        .carousel-container {
+            align-items: center;
+        }
 
         @media (max-width: 480px) {
 
@@ -1480,7 +1484,7 @@
     <section class="hero-section reveal">
         <nav>
             <div class="logo">
-               
+
             </div>
             <ul class="nav-links">
                 <li><a href="#">Home</a></li>
@@ -1501,150 +1505,163 @@
                 </h1>
 
                 <div class="services">
-    <div class="service-item">
-        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="16 18 22 12 16 6"></polyline>
-            <polyline points="8 6 2 12 8 18"></polyline>
-        </svg>
-        <div class="service-name">Web development</div>
-    </div>
-    
-    <div class="service-item">
-        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
-            <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
-        </svg>
-        <div class="service-name">Music</div>
-    </div>
-    
-    <div class="service-item">
-        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-            <polyline points="2 17 12 22 22 17"></polyline>
-            <polyline points="2 12 12 17 22 12"></polyline>
-        </svg>
-        <div class="service-name">Content</div>
-    </div>
-    
-    <div class="service-item">
-        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-        </svg>
-        <div class="service-name">AI Automation</div>
-    </div>
-</div>
+                    <div class="service-item">
+                        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="16 18 22 12 16 6"></polyline>
+                            <polyline points="8 6 2 12 8 18"></polyline>
+                        </svg>
+                        <div class="service-name">Web development</div>
+                    </div>
+
+                    <div class="service-item">
+                        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
+                            <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z">
+                            </path>
+                        </svg>
+                        <div class="service-name">Music</div>
+                    </div>
+
+                    <div class="service-item">
+                        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                            <polyline points="2 17 12 22 22 17"></polyline>
+                            <polyline points="2 12 12 17 22 12"></polyline>
+                        </svg>
+                        <div class="service-name">Content</div>
+                    </div>
+
+                    <div class="service-item">
+                        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z">
+                            </path>
+                        </svg>
+                        <div class="service-name">AI Automation</div>
+                    </div>
+                </div>
             </div>
 
             <div class="hero-right">
-                <h3>No one is a pro when they begin.</h3>
-                <p class="ttcommons">I do a lot of cool stuff like Web development, Music, Design, Embedded IOT, AI content , AI automation, CInematography, Editing, Drone Engineering and what not.</p>
+                <h3>The Common Ground.</h3>
+                <p class="ttcommons">
+                    For a long time, I struggled to fit into a single box. The world often tells us to niche down, to choose between being an engineer, an artist, or a writer but that binary never made sense to me. I’ve always found myself oscillating between different worlds that aren’t supposed to touch.
+                    <br><br>
+                    One moment I am deep in the logic of designing circuit systems or architecting AI automations, and the next I am producing a hiphop track or writing an essay. I built this website because I needed a place where those fragmented interests could finally stop being distractions and start being a cohesive story.
+                </p>
             </div>
         </div>
     </section>
 
-    
+
     <section class="about-section reveal">
         <div class="about-grid">
             <div class="about-left">
                 <p class="section-label"></p>
-                <h2 class="about-title"><span class="initial-part">What</span> <span
-                        class="portfolio-part">Purpose</span></h2>
+                <h2 class="about-title"><span class="initial-part">Written</span> <span
+                        class="portfolio-part">Thoughts</span></h2>
             </div>
 
             <div class="about-divider"></div>
 
             <div class="about-right">
                 <p class="about-description">
-                    <b></b>
-I built this space to hold everything I create and explore. From designing complex circuit systems and building embedded and software projects to developing AI automations, AI-driven content, and thoughtful essays, this website brings all of my work together under one roof. It is also a place for engineering soundscapes, crafting visual identities, and shaping ideas from concept to execution. At its core, this space exists to connect technical logic with creative rhythm, where systems, stories, code, music, and visuals all meet and evolve.                </p>
+                    <b>Documentation of the process.</b>
+                    I built this space to hold everything I create and explore. From designing complex circuit systems
+                    and building embedded projects to developing AI automations and thoughtful essays. At its core, this space exists to connect technical logic with creative rhythm.
+                </p>
             </div>
         </div>
 
         <div class="portfolio-carousel">
-    <div class="carousel-container">
+            <div class="carousel-container">
 
-        <a href="#" class="blog-card">
-            <div>
-                <div class="blog-date">Jan 12, 2026</div>
-                <div class="blog-title">The Death of Niche: Why I refused to choose one path</div>
+                <a href="niche-blog.html" class="blog-card">
+                    <div>
+                        <div class="blog-date">Jan 12, 2026</div>
+                        <div class="blog-title">The Death of Niche: Why I refused to choose one path</div>
+                    </div>
+                    <div class="blog-tag">Essay</div>
+                </a>
+
+                <a href="roboticarm-blog.html" class="blog-card">
+                    <div>
+                        <div class="blog-date">Dec 25, 2025</div>
+                        <div class="blog-title">Building a 5DOF Robotic Arm: From Arduino to Prototype</div>
+                    </div>
+                    <div class="blog-tag">Engineering</div>
+                </a>
+
+                <a href="hiphop-blog.html" class="blog-card">
+                    <div>
+                        <div class="blog-date">Nov 18, 2025</div>
+                        <div class="blog-title">Sonic Identity: Mixing Desi Hip Hop vocals</div>
+                    </div>
+                    <div class="blog-tag">Music Production</div>
+                </a>
+
+                <a href="aiagents-blog.html" class="blog-card">
+                    <div>
+                        <div class="blog-date">Oct 05, 2025</div>
+                        <div class="blog-title">Automating the Boring Stuff with Python & AI Agents</div>
+                    </div>
+                    <div class="blog-tag">AI Automation</div>
+                </a>
+
+                <a href="esp32-blog.html" class="blog-card">
+                    <div>
+                        <div class="blog-date">Sep 15, 2025</div>
+                        <div class="blog-title">Controlling High Voltage Relays with ESP32</div>
+                    </div>
+                    <div class="blog-tag">IoT and Hardware</div>
+                </a>
+
+                <a href="blog-template.html" class="blog-card">
+                    <div>
+                        <div class="blog-date">Jan 12, 2026</div>
+                        <div class="blog-title">The Death of Niche: Why I refused to choose one path</div>
+                    </div>
+                    <div class="blog-tag">Essay</div>
+                </a>
+
+                <a href="roboticarm-blog.html" class="blog-card">
+                    <div>
+                        <div class="blog-date">Dec 25, 2025</div>
+                        <div class="blog-title">Building a 5DOF Robotic Arm: From Arduino to Prototype</div>
+                    </div>
+                    <div class="blog-tag">Engineering</div>
+                </a>
+
+                <a href="#" class="blog-card">
+                    <div>
+                        <div class="blog-date">Nov 18, 2025</div>
+                        <div class="blog-title">Sonic Identity: Mixing Desi Hip Hop vocals</div>
+                    </div>
+                    <div class="blog-tag">Music Production</div>
+                </a>
+
+                <a href="aiagents-blog.html" class="blog-card">
+                    <div>
+                        <div class="blog-date">Oct 04, 2025</div>
+                        <div class="blog-title">Automating the Boring Stuff with Python & AI Agents</div>
+                    </div>
+                    <div class="blog-tag">AI Automation</div>
+                </a>
+
+                <a href="esp32-blog.html" class="blog-card">
+                    <div>
+                        <div class="blog-date">Sep 15, 2025</div>
+                        <div class="blog-title">Controlling High Voltage Relays with ESP32</div>
+                    </div>
+                    <div class="blog-tag">IoT and Hardware</div>
+                </a>
+
             </div>
-            <div class="blog-tag">Essay</div>
-        </a>
-
-        <a href="#" class="blog-card">
-            <div>
-                <div class="blog-date">Dec 25, 2025</div>
-                <div class="blog-title">Building a 5DOF Robotic Arm: From Arduino to Prototype</div>
-            </div>
-            <div class="blog-tag">Engineering</div>
-        </a>
-
-        <a href="#" class="blog-card">
-            <div>
-                <div class="blog-date">Nov 18, 2025</div>
-                <div class="blog-title">Sonic Identity: Mixing Desi Hip Hop vocals</div>
-            </div>
-            <div class="blog-tag">Music Production</div>
-        </a>
-
-        <a href="#" class="blog-card">
-            <div>
-                <div class="blog-date">Oct 05, 2025</div>
-                <div class="blog-title">Automating the Boring Stuff with Python & AI Agents</div>
-            </div>
-            <div class="blog-tag">AI Automation</div>
-        </a>
-
-        <a href="#" class="blog-card">
-            <div>
-                <div class="blog-date">Sep 15, 2025</div>
-                <div class="blog-title">Controlling High Voltage Relays with ESP32</div>
-            </div>
-            <div class="blog-tag">IoT / Hardware</div>
-        </a>
-
-        <a href="#" class="blog-card">
-            <div>
-                <div class="blog-date">Jan 12, 2026</div>
-                <div class="blog-title">The Death of Niche: Why I refused to choose one path</div>
-            </div>
-            <div class="blog-tag">Essay</div>
-        </a>
-
-        <a href="#" class="blog-card">
-            <div>
-                <div class="blog-date">Dec 25, 2025</div>
-                <div class="blog-title">Building a 5DOF Robotic Arm: From Arduino to Prototype</div>
-            </div>
-            <div class="blog-tag">Engineering</div>
-        </a>
-
-        <a href="#" class="blog-card">
-            <div>
-                <div class="blog-date">Nov 18, 2025</div>
-                <div class="blog-title">Sonic Identity: Mixing Desi Hip Hop vocals</div>
-            </div>
-            <div class="blog-tag">Music Production</div>
-        </a>
-
-        <a href="#" class="blog-card">
-            <div>
-                <div class="blog-date">Oct 04, 2025</div>
-                <div class="blog-title">Automating the Boring Stuff with Python & AI Agents</div>
-            </div>
-            <div class="blog-tag">AI Automation</div>
-        </a>
-
-        <a href="#" class="blog-card">
-            <div>
-                <div class="blog-date">Sep 15, 2025</div>
-                <div class="blog-title">Controlling High Voltage Relays with ESP32</div>
-            </div>
-            <div class="blog-tag">IoT / Hardware</div>
-        </a>
-
-    </div>
-</div>
+        </div>
     </section>
 
     <section class="profile-about-section reveal" id="about">
@@ -1652,7 +1669,6 @@ I built this space to hold everything I create and explore. From designing compl
             <h3>Education</h3>
             <ul>
                 <li>BTech, ABES Engineering College — Undergraduate</li>
-                
             </ul>
 
             <h3>Experience</h3>
@@ -1662,12 +1678,12 @@ I built this space to hold everything I create and explore. From designing compl
             <p>I can get things done</p>
             <h3>Interests</h3>
             <ul>
-                <li>Web development/li>
+                <li>Web development</li>
                 <li>AI Automation</li>
                 <li>Generative AI</li>
                 <li>Hip Hop</li>
             </ul>
-            
+
         </div>
 
         <div class="profile-image-container reveal">
@@ -1692,16 +1708,12 @@ I built this space to hold everything I create and explore. From designing compl
                 <li>Canva</li>
                 <li>Figma</li>
                 <li>EAGLE</li>
-            
-            
             </ul>
-
-           
 
             <h3>Contact</h3>
             <p>Please visit the <a href="contact.html">Connect page</a></p>
 
-            
+
         </div>
     </section>
 
@@ -1711,13 +1723,12 @@ I built this space to hold everything I create and explore. From designing compl
                 <div class="tools-title">My Creative Stack</div>
                 <div class="tools-grid">
                     <div class="tool-item">
-                        <img src="https://cdn.simpleicons.org/javascript" alt="Photoshop" class="tool-icon">
+                        <img src="https://cdn.simpleicons.org/javascript" alt="Javascript" class="tool-icon">
                         <span class="tool-name">Javascript</span>
                     </div>
-                    
-                    
+
                     <div class="tool-item">
-                        <img src="https://cdn.simpleicons.org/react" alt="Figma" class="tool-icon">
+                        <img src="https://cdn.simpleicons.org/react" alt="React" class="tool-icon">
                         <span class="tool-name">React</span>
                     </div>
 
@@ -1726,7 +1737,7 @@ I built this space to hold everything I create and explore. From designing compl
                         <span class="tool-name">GitHub</span>
                     </div>
                     <div class="tool-item">
-                        <img src="https://cdn.simpleicons.org/n8n" alt="Behance" class="tool-icon">
+                        <img src="https://cdn.simpleicons.org/n8n" alt="N8n" class="tool-icon">
                         <span class="tool-name">N8n</span>
                     </div>
                     <div class="tool-item">
@@ -1745,25 +1756,27 @@ I built this space to hold everything I create and explore. From designing compl
             </div>
             <div class="tools-right">
                 <p class="tools-description">
-                   I orchestrate a hybrid ecosystem of <b>creative tools, development environments and generative AI.</b> This allows me to bypass traditional niches and execute projects that require both <b>precision engineering and creative soul</b>.
+                    I orchestrate a hybrid ecosystem of <b>creative tools, development environments and generative
+                        AI.</b> This allows me to bypass traditional niches and execute projects that require both
+                    <b>precision engineering and creative soul</b>.
                 </p>
             </div>
         </div>
     </section>
 
     <section class="categories-section reveal" id="projects">
-        <a  class="category-card">
+        <a class="category-card">
             <img src="images/Gemini_Generated_Image_4i8a4w4i8a4w4i8a.png" alt="Print Editions" class="category-thumb">
             <div class="category-title">Pushpak Vimaan</div>
         </a>
 
 
-      <a class="category-card">
+        <a class="category-card">
             <img src="images/Gemini_Generated_Image_rn3m1brn3m1brn3m.png" alt="Print Editions" class="category-thumb">
             <div class="category-title">6DOF ROBOTIC ARM</div>
         </a>
 
-       <a  class="category-card">
+        <a class="category-card">
             <img src="images/Gemini_Generated_Image_unnrg7unnrg7unnr.png" alt="Print Editions" class="category-thumb">
             <div class="category-title">Vayudoot Dashboard</div>
         </a>
@@ -1777,7 +1790,6 @@ I built this space to hold everything I create and explore. From designing compl
     </section>
 
 
-    <!-- Liquid Glass Button Container -->
     <div id="glass-button-container">
         <span class="glass-button-text">Connect</span>
     </div>
@@ -1941,10 +1953,10 @@ I built this space to hold everything I create and explore. From designing compl
             </div>
 
             <div class="footer-left">
-                
+
                 <p class="footer-tagline ttcommons">
                     I love to learn and<br>
-                    built with intent.
+                    build with intent.
                 </p>
             </div>
 
@@ -1959,8 +1971,8 @@ I built this space to hold everything I create and explore. From designing compl
 
                 <div class="footer-column">
                     <span class="footer-title">Connect</span>
-                    
-                    <a href="https://www.instagram.com/archittgupta" target="_blank" rel="noopener noreferrer">Instagram</a>
+                    <a href="https://www.instagram.com/archittgupta" target="_blank"
+                        rel="noopener noreferrer">Instagram</a>
                     <a href="https://www.linkedin.com/in/archit-gupta-973b93261" target="_blank"
                         rel="noopener noreferrer">LinkedIn</a>
                     <a href="https://www.youtube.com/@a4ch1t" target="_blank">Youtube</a>
@@ -1974,25 +1986,25 @@ I built this space to hold everything I create and explore. From designing compl
             © 2026 Archit • Built with design, not templates
         </div>
     </footer>
-<script>
-    // Register ScrollTrigger if not already done
-    gsap.registerPlugin(ScrollTrigger);
+    <script>
+        // Register ScrollTrigger if not already done
+        gsap.registerPlugin(ScrollTrigger);
 
-    // Footer Name Swipe Animation
-    gsap.from(".footer-name", {
-        scrollTrigger: {
-            trigger: ".site-footer", // Starts when the footer enters the view
-            start: "top 90%",        // Animates when footer is 90% down the screen
-            toggleActions: "play none none none"
-        },
-        x: -200,                // Start 200px to the left
-        opacity: 0,             // Start invisible
-        duration: 1.5,          // Speed of the swipe
-        ease: "power4.out",     // Smooth "deceleration" effect
-        autoAlpha: 1,           // Switches visibility from hidden to visible
-        delay: 0.2              // Slight delay for a premium feel
-    });
-</script>
+        // Footer Name Swipe Animation
+        gsap.from(".footer-name", {
+            scrollTrigger: {
+                trigger: ".site-footer", // Starts when the footer enters the view
+                start: "top 90%",        // Animates when footer is 90% down the screen
+                toggleActions: "play none none none"
+            },
+            x: -200,                // Start 200px to the left
+            opacity: 0,             // Start invisible
+            duration: 1.5,          // Speed of the swipe
+            ease: "power4.out",     // Smooth "deceleration" effect
+            autoAlpha: 1,           // Switches visibility from hidden to visible
+            delay: 0.2              // Slight delay for a premium feel
+        });
+    </script>
 
 </body>
 

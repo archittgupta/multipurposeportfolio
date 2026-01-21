@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog — Archit</title>
+    <style>
+        /* --- GLOBAL STYLES (Inherited) --- */
+        @font-face { font-family: 'TTCommonsLocal'; src: url('./fonts/Fontspring-DEMO-tt_commons_pro_regular.otf'); }
+        @font-face { font-family: 'HelveticaLocal'; src: url('./fonts/Helvetica-Bold.ttf'); font-weight: 700; }
+        
+        body {
+            background-color: #050505;
+            color: #E6E3D8;
+            font-family: 'TTCommonsLocal', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- NAV (Simplified) --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: #888;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .back-link:hover { color: #ff6b35; }
+
+        /* --- ARTICLE HERO --- */
+        .article-hero {
+            max-width: 800px;
+            margin: 4rem auto 2rem;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .article-meta {
+            font-size: 0.8rem;
+            color: #ff6b35;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .article-title {
+            font-family: 'HelveticaLocal', sans-serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            color: white;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 4rem;
+            opacity: 0.9;
+        }
+
+        /* --- CONTENT AREA --- */
+        .content {
+            max-width: 740px;
+            margin: 0 auto;
+            padding: 0 2rem 6rem;
+            font-size: 1.15rem;
+            color: #ccc;
+        }
+
+        .content p { margin-bottom: 2rem; }
+        
+        .content h2 {
+            color: white;
+            font-size: 1.8rem;
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+            font-family: 'HelveticaLocal', sans-serif;
+        }
+
+        .content code {
+            background: rgba(255,255,255,0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            color: #ff6b35;
+        }
+
+        /* --- FOOTER / NEXT --- */
+        .next-section {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        .next-btn {
+            display: inline-block;
+            padding: 1rem 3rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 50px;
+            color: white;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            transition: all 0.3s;
+        }
+        .next-btn:hover {
+            background: #ff6b35;
+            border-color: #ff6b35;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="back-link">← Back to Home</a>
+        <span style="font-size: 0.8rem; color:#444;">BLOGs AND ESSAYs</span>
+    </nav>
+
+    <article>
+        <header class="article-hero">
+            <span class="article-meta">January 12, 2026 • Essay</span>
+            <h1 class="article-title">The Death of Niche: Why I Refused to Choose One Path</h1>
+        </header>
+        <div class="content">
+            <p>
+                <b>The world tells us to specialize.</b> From the moment we enter university, we are asked to pick a lane. Engineer? Artist? Musician? Pick one, they say, or you'll be mediocre at all of them.
+            </p>
+            <p>
+                For years, I tried to suppress my other interests. When I was coding <code>embedded systems</code> for my robotic arm project, I felt guilty for wanting to open FL Studio. When I was mixing a rap track, I felt like I was wasting time that could be spent studying VLSI design.
+            </p>
+            
+            <h2>The Convergence Point</h2>
+            <p>
+                But then I realized something: the most interesting things happen at the intersection. My understanding of signal processing in engineering made me a better music producer. My design skills allowed me to present my technical research in ways that actually made people care.
+            </p>
+            <p>
+                This website is the result of that realization. It is not just a portfolio; it is a rejection of the binary. It is proof that you can be a builder <i>and</i> a storyteller.
+            </p>
+        </div>
+    </article>
+
+    <section class="next-section">
+        <p style="color: #666; margin-bottom: 1rem;">READ NEXT</p>
+        <a href="" class="next-btn">View All Projects</a>
+    </section>
+
+</body>
+</html>

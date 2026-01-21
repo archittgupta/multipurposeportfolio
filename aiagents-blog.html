@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Automation — Archit</title>
+    <style>
+        /* --- GLOBAL STYLES (Inherited) --- */
+        @font-face { font-family: 'TTCommonsLocal'; src: url('./fonts/Fontspring-DEMO-tt_commons_pro_regular.otf'); }
+        @font-face { font-family: 'HelveticaLocal'; src: url('./fonts/Helvetica-Bold.ttf'); font-weight: 700; }
+        
+        body {
+            background-color: #050505;
+            color: #E6E3D8;
+            font-family: 'TTCommonsLocal', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- NAV --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: #888;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .back-link:hover { color: #ff6b35; }
+
+        /* --- ARTICLE HERO --- */
+        .article-hero {
+            max-width: 800px;
+            margin: 4rem auto 2rem;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .article-meta {
+            font-size: 0.8rem;
+            color: #ff6b35;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .article-title {
+            font-family: 'HelveticaLocal', sans-serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            color: white;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 4rem;
+            opacity: 0.9;
+            background-color: #1a1a1a;
+        }
+
+        /* --- CONTENT AREA --- */
+        .content {
+            max-width: 740px;
+            margin: 0 auto;
+            padding: 0 2rem 6rem;
+            font-size: 1.15rem;
+            color: #ccc;
+        }
+
+        .content p { margin-bottom: 2rem; }
+        
+        .content h2 {
+            color: white;
+            font-size: 1.8rem;
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+            font-family: 'HelveticaLocal', sans-serif;
+        }
+
+        .content h3 {
+            color: #ff6b35;
+            font-size: 1.2rem;
+            margin-top: 2rem;
+            font-family: 'TTCommonsLocal', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .content ul {
+            margin-bottom: 2rem;
+            padding-left: 1.5rem;
+        }
+
+        .content li {
+            margin-bottom: 0.5rem;
+            color: #ccc;
+        }
+
+        .content code {
+            background: rgba(255,255,255,0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            color: #ff6b35;
+            font-size: 0.9em;
+        }
+
+        /* --- FOOTER / NEXT --- */
+        .next-section {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        .next-btn {
+            display: inline-block;
+            padding: 1rem 3rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 50px;
+            color: white;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            transition: all 0.3s;
+        }
+        .next-btn:hover {
+            background: #ff6b35;
+            border-color: #ff6b35;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="back-link">← Back to Home</a>
+        <span style="font-size: 0.8rem; color:#444;">TECH / AI AGENTS</span>
+    </nav>
+
+    <article>
+        <header class="article-hero">
+            <span class="article-meta">October 04, 2025 • Automation</span>
+            <h1 class="article-title">Automating the Boring Stuff: My Journey with AI Agents</h1>
+        </header>
+
+        <div style="max-width: 1000px; margin: 0 auto; padding: 0 2rem;">
+            <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070&auto=format&fit=crop" class="hero-image" alt="AI Neural Network Art">
+        </div>
+
+        <div class="content">
+            <p>
+                <b>We are entering the era of "Agentic" AI.</b> 
+                For the last two years, most people have treated AI like a very smart chatbot. You ask a question, it gives an answer. But the real power unlocks when you stop talking to the AI and start letting it <i>do</i> things for you.
+            </p>
+            <p>
+                My interest in automation started out of necessity. Applying for jobs, organizing research papers, or sorting through gigabytes of sample libraries—these are tasks that require low intelligence but high effort. They are the perfect candidates for automation.
+            </p>
+            
+            <h2>The "Job Application" Agent</h2>
+            <p>
+                One of my recent projects involved building a Python-based agent to handle the tedious process of cold emailing. The logic was simple but effective:
+            </p>
+
+            <h3>The Workflow</h3>
+            <ul>
+                <li><b>Input:</b> A raw job description or company website.</li>
+                <li><b>Processing:</b> The LLM (via API) analyzes the text, matches it against my resume, and identifies the specific skills I should highlight (e.g., highlighting "Embedded Systems" for an IoT role vs. "React" for a web role).</li>
+                <li><b>Output:</b> It generates a tailored email draft and a customized cover letter, ready for review.</li>
+            </ul>
+
+            <p>
+                By using libraries like <code>LangChain</code> or even simple OpenAI/Gemini API calls wrapped in Python scripts, I could turn a 30-minute writing task into a 30-second review task.
+            </p>
+
+            <h2>Why Python?</h2>
+            <p>
+                While no-code tools are great, Python remains the king of automation. The ability to glue together different APIs—Gmail for sending, Google Sheets for tracking, and an LLM for reasoning—gives you infinite flexibility. 
+            </p>
+            <p>
+                The goal isn't to replace human creativity. It's to build a "Second Brain" that handles the logistics, so the "First Brain" (me) can focus on the actual engineering and design work that matters.
+            </p>
+        </div>
+    </article>
+
+    <section class="next-section">
+        <p style="color: #666; margin-bottom: 1rem;">READ NEXT</p>
+        <a href="index.html" class="next-btn">View All Projects</a>
+    </section>
+
+</body>
+</html>
