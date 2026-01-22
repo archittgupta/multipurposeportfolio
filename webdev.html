@@ -5,146 +5,106 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Development | Archit</title>
     <style>
-        /* --- FONTS (Same as Home) --- */
+        /* ... (Copy CSS from the Master Template I gave you previously) ... */
+        /* Ensure .project-row, .use-case-box, etc. are included */
+        
+        /* Quick fix for demo purposes: */
         @font-face { font-family: 'TTCommonsLocal'; src: url('./fonts/Fontspring-DEMO-tt_commons_pro_regular.otf') format('opentype'); }
         @font-face { font-family: 'HelveticaLocal'; src: url('./fonts/Helvetica-Bold.ttf') format('truetype'); font-weight: 700; }
         @font-face { font-family: 'AlroLocal'; src: url('./fonts/alro-alro-bold-700.ttf') format('truetype'); font-weight: 700; }
-        @font-face { font-family: 'YapariLocal'; src: url('./fonts/YapariTrial-Medium.ttf') format('truetype'); font-weight: 500; }
+        
+        body { background: #000; color: #E6E3D8; font-family: 'TTCommonsLocal', sans-serif; overflow-x: hidden; }
+        .page-background { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at center, transparent 20%, rgba(0, 0, 0, 0.95) 100%), radial-gradient(circle at 80% 20%, #ff8c42 0%, #c1272d 40%, #000000 80%); z-index: -1; opacity: 0.6; }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 2rem 3rem; max-width: 1400px; margin: 0 auto; }
+        .back-link { text-decoration: none; color: white; font-family: 'AlroLocal'; text-transform: uppercase; font-size: 0.8rem; padding: 10px 20px; border: 1px solid rgba(255,255,255,0.2); border-radius: 30px; background: rgba(0,0,0,0.3); backdrop-filter: blur(5px); transition: all 0.3s ease; }
+        .back-link:hover { background: #ff6b35; border-color: #ff6b35; }
+        
+        .work-hero { padding: 8rem 2rem 6rem; max-width: 1200px; margin: 0 auto; }
+        .skill-tag { color: #ff6b35; font-family: 'TTCommonsLocal'; letter-spacing: 3px; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 1.5rem; display: block; font-weight: 600; }
+        .work-title { font-family: 'HelveticaLocal'; font-size: clamp(3.5rem, 8vw, 7rem); line-height: 0.95; margin-bottom: 2rem; color: white; text-transform: uppercase; }
+        .work-description { max-width: 600px; font-size: 1.2rem; color: #ccc; line-height: 1.6; border-left: 1px solid rgba(255,255,255,0.2); padding-left: 2rem; margin-top: 2rem; }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .projects-container { max-width: 1400px; margin: 0 auto 8rem; padding: 0 2rem; display: flex; flex-direction: column; gap: 8rem; }
+        .project-row { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: center; }
+        .project-row.reverse { grid-template-columns: 1fr 1.2fr; direction: rtl; } 
+        .project-row.reverse .project-details { direction: ltr; } 
 
-        body {
-            background: #000;
-            color: #E6E3D8;
-            font-family: 'TTCommonsLocal', sans-serif;
-            overflow-x: hidden;
-            min-height: 100vh;
+        .project-visual { position: relative; border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.3); aspect-ratio: 16/9; }
+        .project-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; filter: grayscale(20%); }
+        .project-visual:hover .project-img { transform: scale(1.03); filter: grayscale(0%); }
+
+        .project-details { display: flex; flex-direction: column; justify-content: center; }
+        .project-title { font-family: 'HelveticaLocal'; font-size: 2.5rem; margin-bottom: 1.5rem; color: white; line-height: 1.1; }
+        .use-case-box { background: rgba(255,255,255,0.03); padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border-left: 2px solid #ff6b35; backdrop-filter: blur(5px); }
+        .label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: #ff6b35; margin-bottom: 0.5rem; display: block; font-weight: 700; }
+        .text { font-size: 1rem; color: #ccc; line-height: 1.6; }
+        .tech-stack { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1rem; }
+        .tech-tag { font-size: 0.8rem; color: white; background: rgba(255,255,255,0.1); padding: 6px 14px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); font-family: 'TTCommonsLocal'; }
+        /* GitHub Button Style */
+        .github-btn {
+            display: inline-flex; align-items: center; gap: 8px; margin-top: 2rem;
+            padding: 10px 24px; border: 1px solid rgba(255,255,255,0.2); border-radius: 30px;
+            color: white; text-decoration: none; font-size: 0.9rem; font-weight: 600;
+            background: rgba(255,255,255,0.05); transition: all 0.3s ease;
+        }
+        /* --- RESUME BUTTON STYLE --- */
+        .resume-btn {
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.9);
+            font-family: 'AlroLocal', sans-serif;
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 0.7rem 1.4rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(5px);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            margin-right: 1rem; /* Space between this and "Get in touch" */
         }
 
-        /* --- BACKGROUND GRADIENT (Matches Home) --- */
-        .page-background {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: 
-                radial-gradient(circle at center, transparent 20%, rgba(0, 0, 0, 0.95) 100%),
-                radial-gradient(circle at 80% 20%, #ff8c42 0%, #c1272d 40%, #000000 80%);
-            z-index: -1;
-            opacity: 0.6;
+        .resume-btn:hover {
+            background: white;
+            color: black;
+            border-color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.15);
         }
 
-        /* --- ANIMATIONS --- */
+        .resume-icon {
+            width: 16px;
+            height: 16px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            transition: stroke 0.3s;
+        }
+        .github-btn:hover { background: #ff6b35; border-color: #ff6b35; color: black; }
+        .github-icon { width: 18px; height: 18px; fill: currentColor; }
+        @media (max-width: 900px) { .project-row, .project-row.reverse { grid-template-columns: 1fr; gap: 2rem; direction: ltr; } }
         .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* --- NAV --- */
-        nav {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 2rem 3rem; max-width: 1400px; margin: 0 auto;
-        }
-        .back-link {
-            text-decoration: none; color: white; font-family: 'AlroLocal'; 
-            text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px;
-            padding: 10px 20px; border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 30px; background: rgba(0,0,0,0.3); backdrop-filter: blur(5px);
-            transition: all 0.3s ease;
-        }
-        .back-link:hover { background: #ff6b35; border-color: #ff6b35; }
-
-        /* --- HERO SECTION --- */
-        .work-hero {
-            padding: 8rem 2rem 4rem; max-width: 1200px; margin: 0 auto;
-        }
-        .skill-tag {
-            color: #ff6b35; font-family: 'TTCommonsLocal'; letter-spacing: 3px;
-            text-transform: uppercase; font-size: 0.8rem; margin-bottom: 1.5rem; display: block;
-            font-weight: 600;
-        }
-        .work-title {
-            font-family: 'HelveticaLocal'; font-size: clamp(3.5rem, 8vw, 7rem);
-            line-height: 0.95; margin-bottom: 2rem; color: white;
-            text-transform: uppercase;
-        }
-        .work-description {
-            max-width: 600px; font-size: 1.2rem; color: #ccc; line-height: 1.6;
-            font-family: 'TTCommonsLocal'; border-left: 1px solid rgba(255,255,255,0.2);
-            padding-left: 2rem; margin-top: 2rem;
-        }
-
-        /* --- PROJECTS GRID --- */
-        .projects-grid {
-    display: grid;
-    /* CHANGE THIS LINE: Force exactly 3 columns */
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 2rem; 
-    padding: 2rem; 
-    max-width: 1400px; 
-    margin: 4rem auto 8rem;
+        @media (max-width: 600px) {
+    /* Hide the text "Resume" on mobile, just show the icon to save space */
+    .resume-btn {
+        padding: 0.6rem;
+        margin-right: 0.5rem;
+    }
+    .resume-btn span { /* If you wrap text in span */
+        display: none;
+    }
+    /* Or just make it smaller */
+    .resume-btn {
+        font-size: 0.7rem;
+        padding: 0.5rem 1rem;
+    }
 }
-        .project-card {
-            position: relative; aspect-ratio: 4/3;
-            background: rgba(20, 20, 20, 0.6);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 16px; overflow: hidden;
-            text-decoration: none; transition: transform 0.5s ease, border-color 0.3s;
-        }
-        .project-card:hover { transform: scale(1.02); border-color: #ff6b35; }
-        
-        .card-img {
-            width: 100%; height: 100%; object-fit: cover;
-            filter: grayscale(100%) brightness(0.7);
-            transition: filter 0.5s ease;
-        }
-        .project-card:hover .card-img { filter: grayscale(0%) brightness(1); }
-        
-        .card-overlay {
-            position: absolute; bottom: 0; left: 0; width: 100%;
-            padding: 2rem;
-            background: linear-gradient(to top, rgba(0,0,0,1), transparent);
-            transform: translateY(20px); transition: transform 0.4s ease;
-        }
-        .project-card:hover .card-overlay { transform: translateY(0); }
-
-        .card-title {
-            font-family: 'HelveticaLocal'; font-size: 1.8rem; color: white;
-            display: block; margin-bottom: 0.5rem; line-height: 1;
-        }
-        .card-meta {
-            font-size: 0.85rem; color: #ff6b35; text-transform: uppercase; letter-spacing: 1px;
-        }
-
-        /* --- COMPETENCIES SECTION --- */
-        .competencies-section {
-            background: rgba(255,255,255,0.02);
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding: 6rem 2rem;
-        }
-        .comp-container { max-width: 1000px; margin: 0 auto; }
-        .comp-title {
-            font-family: 'YapariLocal'; font-size: 2rem; margin-bottom: 3rem;
-            color: white;
-        }
-        .comp-row {
-            display: flex; justify-content: space-between; align-items: baseline;
-            padding: 2rem 0; border-bottom: 1px solid rgba(255,255,255,0.1);
-            transition: padding 0.3s;
-        }
-        .comp-row:hover { padding-left: 20px; border-color: #ff6b35; }
-        
-        .comp-name { font-family: 'HelveticaLocal'; font-size: 1.5rem; color: white; }
-        .comp-desc { color: #888; font-size: 1rem; text-align: right; max-width: 400px; }
-
-        @media (max-width: 768px) {
-            .projects-grid { grid-template-columns: 1fr; padding: 1rem; }
-            .work-hero { padding-top: 6rem; }
-            .work-title { font-size: 3.5rem; }
-            .comp-row { flex-direction: column; gap: 10px; }
-            .comp-desc { text-align: left; }
-        }
-         @media (max-width: 1024px) {
-    .projects-grid { 
-        grid-template-columns: 1fr; /* Stack vertically on smaller screens */
-        padding: 1rem; 
-    }}
     </style>
 </head>
 <body>
@@ -152,62 +112,145 @@
     <div class="page-background"></div>
 
     <nav class="reveal">
-        <div style="font-weight:700; letter-spacing:1px;">ARCHIT GUPTA</div>
+    <div style="font-weight:700; letter-spacing:1px;">ARCHIT GUPTA</div>
+    
+    <div style="display: flex; align-items: center; gap: 1rem;">
+        <a href="Archit_Gupta_Resume.pdf" target="_blank" class="resume-btn" aria-label="Download Resume">
+            <svg class="resume-icon" viewBox="0 0 24 24">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span class="resume-text">Resume</span>
+        </a>
+        
         <a href="index.html" class="back-link">Back Home</a>
-    </nav>
+    </div>
+</nav>
+    
 
     <section class="work-hero reveal">
         <span class="skill-tag">SKILL SET 02</span>
-        <h1 class="work-title">Web Architecture &<br>Interaction</h1>
+        <h1 class="work-title">Web Development</h1>
         <p class="work-description">
-            Digital experiences built with intent. I engineer high-performance frontends using React and modern CSS, focusing on motion, interactivity, and pixel-perfect implementation.
+            Building scalable, community driven platforms. I combine modern frameworks like Next.js with robust backends to create responsive applications that solve real user needs.
         </p>
     </section>
 
-    <section class="projects-grid">
-        <a href="#" class="project-card reveal">
-            <img src="images/Gemini_Generated_Image_unnrg7unnrg7unnr.png" class="card-img" alt="Vayudoot">
-            <div class="card-overlay">
-                <span class="card-meta">React / Dashboard</span>
-                <span class="card-title">Vayudoot Dashboard</span>
+    <section class="projects-container">
+        
+        <div class="project-row reveal">
+            <div class="project-visual">
+                <img src="https://images.unsplash.com/photo-1529699211952-734e80c4d42b?q=80&w=2071&auto=format&fit=crop" class="project-img" alt="Chess Platform">
             </div>
-        </a>
+            <div class="project-details">
+                <h2 class="project-title">Chess Community Hub</h2>
+                
+                <div class="use-case-box">
+                    <span class="label">The Use Case</span>
+                    <p class="text">
+                        A community driven platform integrating directly with Chess.com accounts. It enables members to compare real time statistics ratings, performance, track tournament updates, and analyze competitive data to foster engagement.
+                    </p>
+                </div>
 
-        <a href="#" class="project-card reveal">
-            <img src="images/Gemini_Generated_Image_4i8a4w4i8a4w4i8a.png" class="card-img" alt="Pushpak Vimaan">
-            <div class="card-overlay">
-                <span class="card-meta">Frontend / UI</span>
-                <span class="card-title">Pushpak Vimaan Interface</span>
-            </div>
-        </a>
+                <div>
+                    <span class="label">Tech Stack</span>
+                    <div class="tech-stack">
+                       
+                        <img src="https://skillicons.dev/icons?i=tailwind" height="40" alt="Tailwind CSS logo" />
+                        <img src="https://skillicons.dev/icons?i=ts" height="40" alt="TypeScript logo" />
+                        <img src="https://skillicons.dev/icons?i=nextjs" height="40" alt="NextJS logo"  />
+                        <img src="https://skillicons.dev/icons?i=css" height="40" alt="CSS logo"  />
+                        <img src="https://skillicons.dev/icons?i=prisma" height="40" alt="Prisma logo"  />
+                        <img src="https://skillicons.dev/icons?i=nodejs" height="40" alt="Node.js logo" />
+                        
 
-        <a href="#" class="project-card reveal">
-            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070" class="card-img" alt="Code Structure">
-            <div class="card-overlay">
-                <span class="card-meta">Three.js / Animation</span>
-                <span class="card-title">Immersive Portfolios</span>
-            </div>
-        </a>
-    </section>
 
-    <section class="competencies-section reveal">
-        <div class="comp-container">
-            <h3 class="comp-title">Core Competencies</h3>
-            
-            <div class="comp-row">
-                <span class="comp-name">Frontend Architecture</span>
-                <span class="comp-desc">React, HTML5, Modern CSS, and Component Systems.</span>
-            </div>
-            <div class="comp-row">
-                <span class="comp-name">Interactive Design</span>
-                <span class="comp-desc">Three.js, GSAP Animations, and WebGL integration.</span>
-            </div>
-            <div class="comp-row">
-                <span class="comp-name">UI Implementation</span>
-                <span class="comp-desc">Translating Figma concepts into responsive, clean code.</span>
+                        
+                    </div>
+                </div>
+                        <a href="https://github.com/archittgupta/enpassant" target="_blank" class="github-btn">
+                    <svg class="github-icon" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    View Code
+                         </a>
             </div>
         </div>
+
+        <div class="project-row reverse reveal">
+            <div class="project-visual">
+                <img src="images/Gemini_Generated_Image_unnrg7unnrg7unnr.png" class="project-img" alt="Vayudoot">
+            </div>
+            <div class="project-details">
+                <h2 class="project-title">Vayudoot Dashboard</h2>
+                
+                <div class="use-case-box">
+                    <span class="label">The Use Case</span>
+                    <p class="text">
+                        A fully responsive web application designed to make teams register for a PAN India Drone competition.
+                    </p>
+                </div>
+
+                <div>
+                    <span class="label">Tech Stack</span>
+                    <div class="tech-stack">
+                         <img src="https://skillicons.dev/icons?i=tailwind" height="40" alt="Tailwind CSS logo" />
+                        
+                        <img src="https://skillicons.dev/icons?i=ts" height="40" alt="TypeScript logo" />
+                        <img src="https://skillicons.dev/icons?i=nextjs" height="40" alt="NextJS logo"  />
+                        <img src="https://skillicons.dev/icons?i=css" height="40" alt="CSS logo"  />
+
+                        
+
+                    
+                    </div>
+                </div>
+                <a href="https://github.com/archittgupta/vayudoot-2-0" target="_blank" class="github-btn">
+                    <svg class="github-icon" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    View Code
+                </a>
+            </div>
+        </div>
+
+        <div class="project-row reveal">
+            <div class="project-visual">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop" class="project-img" alt="Image Search">
+            </div>
+            <div class="project-details">
+                <h2 class="project-title">Dev Image Search</h2>
+                
+                <div class="use-case-box">
+                    <span class="label">The Use Case</span>
+                    <p class="text">
+                        A tool tailored for developers to discover and download high-quality, copyright-free images safely. It mitigates the risk of copyright infringement for personal and commercial projects by leveraging the Unsplash API.
+                    </p>
+                </div>
+
+                <div>
+                    <span class="label">Tech Stack</span>
+                    <div class="tech-stack">
+                       <img src="https://skillicons.dev/icons?i=js" height="40" alt="JavaScript logo" />
+                        <img src="https://skillicons.dev/icons?i=tailwind" height="40" alt="Tailwind CSS logo" />
+                        
+                        
+                        <img src="https://skillicons.dev/icons?i=react" height="40" alt="React logo" />
+                      
+                        <img src="https://skillicons.dev/icons?i=redux" height="40" alt="Redux logo"  />
+                      
+                    
+                        <img src="https://skillicons.dev/icons?i=css" height="40" alt="CSS logo"  />
+                        
+                    </div>
+                </div>
+                <a href="https://github.com/archittgupta/Image-search-2.0" target="_blank" class="github-btn">
+                    <svg class="github-icon" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    View Code
+                </a>
+            </div>
+        </div>
+        
+
     </section>
+    
 
     <footer style="text-align: center; padding: 4rem; color: #444; font-size: 0.8rem; font-family:'TTCommonsLocal';">
         © 2026 Archit Gupta • Built with intent
@@ -216,15 +259,9 @@
     <script>
         const revealElements = document.querySelectorAll('.reveal');
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
         }, { threshold: 0.1 });
-
         revealElements.forEach(el => observer.observe(el));
     </script>
-
 </body>
 </html>
