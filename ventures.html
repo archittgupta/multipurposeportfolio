@@ -12,7 +12,9 @@
         
         /* --- GLOBAL RESET --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: #000; color: #E6E3D8; font-family: 'TTCommonsLocal', sans-serif; overflow-x: hidden; }
+        
+        /* FIXED: Added Fallback Fonts (Arial, sans-serif) */
+        body { background: #000; color: #E6E3D8; font-family: 'TTCommonsLocal', Arial, sans-serif; overflow-x: hidden; }
         
         /* --- BACKGROUND --- */
         .page-background { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at center, transparent 20%, rgba(0, 0, 0, 0.95) 100%), radial-gradient(circle at 80% 20%, #ff8c42 0%, #c1272d 40%, #000000 80%); z-index: -1; opacity: 0.6; }
@@ -20,12 +22,13 @@
         /* --- NAVIGATION --- */
         nav { display: flex; justify-content: space-between; align-items: center; padding: 2rem 3rem; max-width: 1400px; margin: 0 auto; width: 100%; z-index: 100; position: relative; }
         
-        .back-link { text-decoration: none; color: white; font-family: 'AlroLocal'; text-transform: uppercase; font-size: 0.8rem; padding: 10px 20px; border: 1px solid rgba(255,255,255,0.2); border-radius: 30px; background: rgba(0,0,0,0.3); backdrop-filter: blur(5px); transition: all 0.3s ease; white-space: nowrap; }
+        /* FIXED: Added Fallback Fonts */
+        .back-link { text-decoration: none; color: white; font-family: 'AlroLocal', Arial, sans-serif; text-transform: uppercase; font-size: 0.8rem; padding: 10px 20px; border: 1px solid rgba(255,255,255,0.2); border-radius: 30px; background: rgba(0,0,0,0.3); backdrop-filter: blur(5px); transition: all 0.3s ease; white-space: nowrap; }
         .back-link:hover { background: #ff6b35; border-color: #ff6b35; }
         
         /* --- RESUME BUTTON STYLE --- */
         .resume-btn {
-            text-decoration: none; color: rgba(255, 255, 255, 0.9); font-family: 'AlroLocal', sans-serif; font-weight: 700; font-size: 0.8rem;
+            text-decoration: none; color: rgba(255, 255, 255, 0.9); font-family: 'AlroLocal', Arial, sans-serif; font-weight: 700; font-size: 0.8rem;
             padding: 10px 20px; border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 30px; background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(5px); display: inline-flex; align-items: center; gap: 8px; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             white-space: nowrap; margin-right: 1rem;
@@ -35,8 +38,10 @@
 
         /* --- HERO --- */
         .work-hero { padding: 8rem 2rem 6rem; max-width: 1200px; margin: 0 auto; }
-        .skill-tag { color: #ff6b35; font-family: 'TTCommonsLocal'; letter-spacing: 3px; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 1.5rem; display: block; font-weight: 600; }
-        .work-title { font-family: 'HelveticaLocal'; font-size: clamp(3rem, 8vw, 7rem); line-height: 0.95; margin-bottom: 2rem; color: white; text-transform: uppercase; }
+        .skill-tag { color: #ff6b35; font-family: 'TTCommonsLocal', Arial, sans-serif; letter-spacing: 3px; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 1.5rem; display: block; font-weight: 600; }
+        
+        /* FIXED: Added Fallback Fonts */
+        .work-title { font-family: 'HelveticaLocal', Arial, sans-serif; font-size: clamp(3rem, 8vw, 7rem); line-height: 0.95; margin-bottom: 2rem; color: white; text-transform: uppercase; }
         .work-description { max-width: 600px; font-size: 1.2rem; color: #ccc; line-height: 1.6; border-left: 1px solid rgba(255,255,255,0.2); padding-left: 2rem; margin-top: 2rem; }
 
         /* --- PROJECTS --- */
@@ -50,14 +55,16 @@
         .project-visual:hover .project-img { transform: scale(1.03); filter: grayscale(0%); }
 
         .project-details { display: flex; flex-direction: column; justify-content: center; }
-        .project-title { font-family: 'HelveticaLocal'; font-size: 2.5rem; margin-bottom: 1.5rem; color: white; line-height: 1.1; }
+        
+        /* FIXED: Added Fallback Fonts */
+        .project-title { font-family: 'HelveticaLocal', Arial, sans-serif; font-size: 2.5rem; margin-bottom: 1.5rem; color: white; line-height: 1.1; }
         .use-case-box { background: rgba(255,255,255,0.03); padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border-left: 2px solid #ff6b35; backdrop-filter: blur(5px); }
         .label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: #ff6b35; margin-bottom: 0.5rem; display: block; font-weight: 700; }
         .text { font-size: 1rem; color: #ccc; line-height: 1.6; }
         
         .tech-stack { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1rem; }
-        /* Using Text Tags for Hardware because logos are often not available or messy */
-        .tech-tag { font-size: 0.8rem; color: white; background: rgba(255,255,255,0.1); padding: 6px 14px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); font-family: 'TTCommonsLocal'; }
+        /* FIXED: Added Fallback Fonts */
+        .tech-tag { font-size: 0.8rem; color: white; background: rgba(255,255,255,0.1); padding: 6px 14px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); font-family: 'TTCommonsLocal', Arial, sans-serif; }
         
         /* GITHUB BTN */
         .github-btn { display: inline-flex; align-items: center; gap: 8px; margin-top: 2rem; padding: 10px 24px; border: 1px solid rgba(255,255,255,0.2); border-radius: 30px; color: white; text-decoration: none; font-size: 0.9rem; font-weight: 600; background: rgba(255,255,255,0.05); transition: all 0.3s ease; width: fit-content; }
@@ -78,7 +85,7 @@
         @media (max-width: 600px) {
             nav { padding: 1rem 1.5rem; }
             .resume-btn { padding: 0.6rem; border-radius: 50%; width: 40px; height: 40px; justify-content: center; margin-right: 0.5rem; }
-            .resume-text { display: none; }
+            .resume-text { display: none; } /* Hide text on mobile */
             .resume-icon { width: 20px; height: 20px; margin: 0; }
             .back-link { padding: 0.6rem 1rem; font-size: 0.7rem; }
             .work-title { font-size: 3rem; }
@@ -111,7 +118,7 @@
         <span class="skill-tag">SKILL SET 03</span>
         <h1 class="work-title">Electronics &<br>Hardware</h1>
         <p class="work-description">
-            Bridging bits and atoms. From VLSI logic design to building complex robotic kinematics and designing high-power PCBs for UAVs, I engineer systems that interact physically with the real world.
+            Bridging bits and atoms. From designing industrial grade UAVs to fabricating custom PCBs and programming embedded systems, I engineer hardware that interacts physically with the real world.
         </p>
     </section>
 
@@ -119,7 +126,7 @@
         
         <div class="project-row reveal">
             <div class="project-visual">
-                [cite_start]<img src="https://images.unsplash.com/photo-1579829366248-204fe8413f31?q=80&w=2070&auto=format&fit=crop" class="project-img" alt="Disaster Management Drone [cite: 77, 80]">
+                <img src="https://images.unsplash.com/photo-1579829366248-204fe8413f31?q=80&w=2070&auto=format&fit=crop" class="project-img" alt="Disaster Management Drone">
             </div>
             <div class="project-details">
                 <h2 class="project-title">Disaster Management UAV</h2>
@@ -127,7 +134,7 @@
                 <div class="use-case-box">
                     <span class="label">The Use Case</span>
                     <p class="text">
-                        [cite_start]A fully functional UAV designed for rapid response in disaster-affected areas. It scans terrain to locate people with precision using onboard computer vision and simultaneously delivers critical food and medical supplies[cite: 80].
+                        A fully functional UAV designed for rapid response in disaster affected areas. It scans terrain to locate people with precision using onboard computer vision and simultaneously delivers critical food and medical supplies.
                     </p>
                 </div>
 
@@ -135,23 +142,18 @@
                     <span class="label">Tech Stack</span>
                     <div class="tech-stack">
                         <span class="tech-tag">OpenCV</span>
-                        <span class="tech-tag">YOLO-V8</span>
+                        <span class="tech-tag">YOLO V8</span>
                         <span class="tech-tag">Mission Planner</span>
                         <span class="tech-tag">SolidWorks</span>
                         <span class="tech-tag">MATLAB</span>
                     </div>
                 </div>
-
-                <a href="https://github.com/archittgupta" target="_blank" class="github-btn">
-                    <svg class="github-icon" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                    View Code
-                </a>
             </div>
         </div>
 
         <div class="project-row reverse reveal">
             <div class="project-visual">
-                [cite_start]<img src="https://images.unsplash.com/photo-1631553120681-7299a19c63b7?q=80&w=2070&auto=format&fit=crop" class="project-img" alt="PCB Design [cite: 73, 76]">
+                <img src="https://images.unsplash.com/photo-1555664424-778a1e5e1b48?q=80&w=2070&auto=format&fit=crop" class="project-img" alt="PCB Design">
             </div>
             <div class="project-details">
                 <h2 class="project-title">40A Speed Controller (ESC)</h2>
@@ -159,7 +161,7 @@
                 <div class="use-case-box">
                     <span class="label">The Use Case</span>
                     <p class="text">
-                        [cite_start]Custom power electronics development for high-performance UAVs. Designed and simulated the PCB for a 40 Amp Electronic Speed Controller on KiCad, followed by fabrication to ensure reliable, high-current motor control[cite: 73, 76].
+                        Custom power electronics development for high performance UAVs. Designed and simulated the PCB for an Electronic Speed Controller on KiCad, followed by manual fabrication to ensure reliable, high current motor control.
                     </p>
                 </div>
 
@@ -172,17 +174,12 @@
                         <span class="tech-tag">Power Electronics</span>
                     </div>
                 </div>
-
-                <a href="https://github.com/archittgupta" target="_blank" class="github-btn">
-                    <svg class="github-icon" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                    View Code
-                </a>
             </div>
         </div>
 
         <div class="project-row reveal">
             <div class="project-visual">
-                [cite_start]<img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop" class="project-img" alt="Robotic Arm [cite: 81, 83]">
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop" class="project-img" alt="Robotic Arm">
             </div>
             <div class="project-details">
                 <h2 class="project-title">Pick & Drop Robotic Arm</h2>
@@ -190,7 +187,7 @@
                 <div class="use-case-box">
                     <span class="label">The Use Case</span>
                     <p class="text">
-                        [cite_start]An automated Arduino-based system designed for precise pick-and-place operations. This project involved complex kinematics programming and electromechanical integration for industrial automation tasks[cite: 81, 83].
+                        An automated Arduino based system designed for precise pick and drop operations. This project involved electromechanical integration and programming in Embedded C for industrial automation simulation.
                     </p>
                 </div>
 
@@ -200,20 +197,17 @@
                         <span class="tech-tag">Arduino IDE</span>
                         <span class="tech-tag">Embedded C</span>
                         <span class="tech-tag">Fusion 360</span>
-                        <span class="tech-tag">Kinematics</span>
+                        <span class="tech-tag">KiCad</span>
                     </div>
                 </div>
-
-                <a href="https://github.com/archittgupta" target="_blank" class="github-btn">
-                    <svg class="github-icon" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                    View Code
-                </a>
             </div>
         </div>
 
     </section>
 
-    <footer style="text-align: center; padding: 4rem; color: #444; font-size: 0.8rem; font-family:'TTCommonsLocal';">
+    
+
+    <footer style="text-align: center; padding: 4rem; color: #444; font-size: 0.8rem; font-family:'TTCommonsLocal', Arial, sans-serif;">
         © 2026 Archit Gupta • Built with intent
     </footer>
 
