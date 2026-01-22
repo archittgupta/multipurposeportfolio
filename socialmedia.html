@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content & Socials | Archit</title>
+    <style>
+        /* --- FONTS (Same as Home) --- */
+        @font-face { font-family: 'TTCommonsLocal'; src: url('./fonts/Fontspring-DEMO-tt_commons_pro_regular.otf') format('opentype'); }
+        @font-face { font-family: 'HelveticaLocal'; src: url('./fonts/Helvetica-Bold.ttf') format('truetype'); font-weight: 700; }
+        @font-face { font-family: 'AlroLocal'; src: url('./fonts/alro-alro-bold-700.ttf') format('truetype'); font-weight: 700; }
+        @font-face { font-family: 'YapariLocal'; src: url('./fonts/YapariTrial-Medium.ttf') format('truetype'); font-weight: 500; }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: #000;
+            color: #E6E3D8;
+            font-family: 'TTCommonsLocal', sans-serif;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* --- BACKGROUND GRADIENT (Matches Home) --- */
+        .page-background {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: 
+                radial-gradient(circle at center, transparent 20%, rgba(0, 0, 0, 0.95) 100%),
+                radial-gradient(circle at 80% 20%, #ff8c42 0%, #c1272d 40%, #000000 80%);
+            z-index: -1;
+            opacity: 0.6;
+        }
+
+        /* --- ANIMATIONS --- */
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* --- NAV --- */
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 2rem 3rem; max-width: 1400px; margin: 0 auto;
+        }
+        .back-link {
+            text-decoration: none; color: white; font-family: 'AlroLocal'; 
+            text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px;
+            padding: 10px 20px; border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 30px; background: rgba(0,0,0,0.3); backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+        .back-link:hover { background: #ff6b35; border-color: #ff6b35; }
+
+        /* --- HERO SECTION --- */
+        .work-hero {
+            padding: 8rem 2rem 4rem; max-width: 1200px; margin: 0 auto;
+        }
+        .skill-tag {
+            color: #ff6b35; font-family: 'TTCommonsLocal'; letter-spacing: 3px;
+            text-transform: uppercase; font-size: 0.8rem; margin-bottom: 1.5rem; display: block;
+            font-weight: 600;
+        }
+        .work-title {
+            font-family: 'HelveticaLocal'; font-size: clamp(3.5rem, 8vw, 7rem);
+            line-height: 0.95; margin-bottom: 2rem; color: white;
+            text-transform: uppercase;
+        }
+        .work-description {
+            max-width: 600px; font-size: 1.2rem; color: #ccc; line-height: 1.6;
+            font-family: 'TTCommonsLocal'; border-left: 1px solid rgba(255,255,255,0.2);
+            padding-left: 2rem; margin-top: 2rem;
+        }
+
+        /* --- PROJECTS GRID --- */
+        .projects-grid {
+    display: grid;
+    /* CHANGE THIS LINE: Force exactly 3 columns */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 2rem; 
+    padding: 2rem; 
+    max-width: 1400px; 
+    margin: 4rem auto 8rem;
+}
+        
+        .project-card {
+            position: relative; aspect-ratio: 4/3;
+            background: rgba(20, 20, 20, 0.6);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px; overflow: hidden;
+            text-decoration: none; transition: transform 0.5s ease, border-color 0.3s;
+        }
+        .project-card:hover { transform: scale(1.02); border-color: #ff6b35; }
+        
+        .card-img {
+            width: 100%; height: 100%; object-fit: cover;
+            filter: grayscale(100%) brightness(0.7);
+            transition: filter 0.5s ease;
+        }
+        .project-card:hover .card-img { filter: grayscale(0%) brightness(1); }
+        
+        .card-overlay {
+            position: absolute; bottom: 0; left: 0; width: 100%;
+            padding: 2rem;
+            background: linear-gradient(to top, rgba(0,0,0,1), transparent);
+            transform: translateY(20px); transition: transform 0.4s ease;
+        }
+        .project-card:hover .card-overlay { transform: translateY(0); }
+
+        .card-title {
+            font-family: 'HelveticaLocal'; font-size: 1.8rem; color: white;
+            display: block; margin-bottom: 0.5rem; line-height: 1;
+        }
+        .card-meta {
+            font-size: 0.85rem; color: #ff6b35; text-transform: uppercase; letter-spacing: 1px;
+        }
+
+        /* --- COMPETENCIES SECTION --- */
+        .competencies-section {
+            background: rgba(255,255,255,0.02);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: 6rem 2rem;
+        }
+        .comp-container { max-width: 1000px; margin: 0 auto; }
+        .comp-title {
+            font-family: 'YapariLocal'; font-size: 2rem; margin-bottom: 3rem;
+            color: white;
+        }
+        .comp-row {
+            display: flex; justify-content: space-between; align-items: baseline;
+            padding: 2rem 0; border-bottom: 1px solid rgba(255,255,255,0.1);
+            transition: padding 0.3s;
+        }
+        .comp-row:hover { padding-left: 20px; border-color: #ff6b35; }
+        
+        .comp-name { font-family: 'HelveticaLocal'; font-size: 1.5rem; color: white; }
+        .comp-desc { color: #888; font-size: 1rem; text-align: right; max-width: 400px; }
+
+        @media (max-width: 768px) {
+            .projects-grid { grid-template-columns: 1fr; padding: 1rem; }
+            .work-hero { padding-top: 6rem; }
+            .work-title { font-size: 3.5rem; }
+            .comp-row { flex-direction: column; gap: 10px; }
+            .comp-desc { text-align: left; }
+        }
+         @media (max-width: 1024px) {
+    .projects-grid { 
+        grid-template-columns: 1fr; /* Stack vertically on smaller screens */
+        padding: 1rem; 
+    }}
+    </style>
+</head>
+<body>
+
+    <div class="page-background"></div>
+
+    <nav class="reveal">
+        <div style="font-weight:700; letter-spacing:1px;">ARCHIT GUPTA</div>
+        <a href="index.html" class="back-link">Back Home</a>
+    </nav>
+
+    <section class="work-hero reveal">
+        <span class="skill-tag">SKILL SET 04</span>
+        <h1 class="work-title">Content &<br>Socials</h1>
+        <p class="work-description">
+            The art of attention. I combine video editing, graphic design, and audio engineering to create compelling narratives that cut through the noise on social platforms.
+        </p>
+    </section>
+
+    <section class="projects-grid">
+        <a href="blog-music-mix.html" class="project-card reveal">
+            <img src="images/Red and Yellow Bold Portrait Album Cover (4).png" class="card-img" alt="Better Call Archit">
+            <div class="card-overlay">
+                <span class="card-meta">Music / Release Campaign</span>
+                <span class="card-title">Better Call Archit</span>
+            </div>
+        </a>
+
+        <a href="#" class="project-card reveal">
+            <img src="images/tools/premiere.png" class="card-img" style="object-fit: contain; padding: 50px; background:#0a0a0a;" alt="Premiere Pro">
+            <div class="card-overlay">
+                <span class="card-meta">Short Form Content</span>
+                <span class="card-title">High-Retention Editing</span>
+            </div>
+        </a>
+
+        <a href="#" class="project-card reveal">
+            <img src="images/canva-icon.png" class="card-img" style="object-fit: contain; padding: 50px; background:#0a0a0a;" alt="Canva/Design">
+            <div class="card-overlay">
+                <span class="card-meta">Graphic Design</span>
+                <span class="card-title">Brand Identity Assets</span>
+            </div>
+        </a>
+    </section>
+
+    <section class="competencies-section reveal">
+        <div class="comp-container">
+            <h3 class="comp-title">Core Competencies</h3>
+            
+            <div class="comp-row">
+                <span class="comp-name">Audio Engineering</span>
+                <span class="comp-desc">FL Studio mixing, mastering, and sound design for DHH tracks.</span>
+            </div>
+            <div class="comp-row">
+                <span class="comp-name">Video Production</span>
+                <span class="comp-desc">Premiere Pro & After Effects workflow for reels and long-form.</span>
+            </div>
+            <div class="comp-row">
+                <span class="comp-name">Visual Strategy</span>
+                <span class="comp-desc">Designing thumbnails and hooks optimized for algorithm retention.</span>
+            </div>
+        </div>
+    </section>
+
+    <footer style="text-align: center; padding: 4rem; color: #444; font-size: 0.8rem; font-family:'TTCommonsLocal';">
+        © 2026 Archit Gupta • Built with intent
+    </footer>
+
+    <script>
+        const revealElements = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        revealElements.forEach(el => observer.observe(el));
+    </script>
+
+</body>
+</html>

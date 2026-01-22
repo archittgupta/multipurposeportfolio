@@ -1476,155 +1476,172 @@
                 font-size: 0.9rem !important;
             }
         }
-        /* --- MUSIC SECTION STYLES --- */
-.music-section {
-    position: relative;
-    padding: 6rem 2rem;
-    overflow: hidden;
-    background: #000;
-    border-top: 1px solid rgba(255,255,255,0.1);
-}
 
-.music-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* Same image as cover art, but blurred for background */
-    background-image: url('images/Red and Yellow Bold Portrait Album Cover (4).png'); 
-    background-size: cover;
-    background-position: center;
-    filter: blur(20px) brightness(0.3);
-    z-index: 0;
-}
+        /* --- UPDATED MUSIC SECTION --- */
+        .music-section {
+            position: relative;
+            padding: 6rem 2rem;
+            overflow: hidden;
+            background: #000;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
 
-.music-content {
-    position: relative;
-    z-index: 1;
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    gap: 4rem;
-}
+        .music-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('images/Red and Yellow Bold Portrait Album Cover (4).png');
+            background-size: cover;
+            background-position: center;
+            filter: blur(20px) brightness(0.3);
+            z-index: 0;
+        }
 
-.album-art {
-    width: 300px;
-    height: 300px;
-    border-radius: 12px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-    transition: transform 0.5s ease;
-}
+        .music-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            /* CHANGE: Use Grid for side-by-side layout */
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
 
-.album-art:hover {
-    transform: scale(1.05) rotate(2deg);
-}
+        /* New Wrapper for each song */
+        .song-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
 
-.music-info h2 {
-    font-family: 'HelveticaLocal', sans-serif;
-    font-size: 4rem;
-    line-height: 1;
-    margin-bottom: 0.5rem;
-    text-transform: uppercase;
-    background: linear-gradient(to right, #fff, #999);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
+        .album-art {
+            width: 300px;
+            height: 300px;
+            border-radius: 12px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
 
-.music-label {
-    color: #ff6b35;
-    font-family: 'TTCommonsLocal', sans-serif;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
-    display: block;
-}
+       
 
-.play-btn {
-    margin-top: 2rem;
-    padding: 1rem 2.5rem;
-    background: white;
-    color: black;
-    border: none;
-    border-radius: 50px;
-    font-weight: 700;
-    cursor: pointer;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-}
+        .music-info h2 {
+            font-family: 'HelveticaLocal', sans-serif;
+            font-size: 2.5rem;
+            /* Slightly smaller to fit two */
+            line-height: 1.1;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            background: linear-gradient(to right, #fff, #999);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-.play-btn:hover {
-    background: #ff6b35;
-    color: white;
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(255, 107, 53, 0.3);
-}
+        .music-label {
+            color: #ff6b35;
+            font-family: 'TTCommonsLocal', sans-serif;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
 
-/* --- POP-UP MODAL STYLES --- */
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.9);
-    backdrop-filter: blur(10px);
-    z-index: 9999;
-    display: none; /* Hidden by default */
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-}
+        .play-btn {
+            margin-top: 1.5rem;
+            padding: 0.8rem 2rem;
+            background: white;
+            color: black;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
 
-.modal-content {
-    width: 90%;
-    max-width: 800px;
-    aspect-ratio: 16/9;
-    background: black;
-    border-radius: 12px;
-    overflow: hidden;
-    position: relative;
-    box-shadow: 0 0 50px rgba(255, 107, 53, 0.2);
-    transform: scale(0.9);
-    transition: transform 0.4s ease;
-}
+        .play-btn:hover {
+            background: #ff6b35;
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 107, 53, 0.3);
+        }
 
-.close-modal {
-    position: absolute;
-    top: -50px;
-    right: 0;
-    color: white;
-    font-size: 2rem;
-    cursor: pointer;
-    background: none;
-    border: none;
-    transition: color 0.3s;
-}
+        /* --- POP-UP MODAL STYLES --- */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 9999;
+            display: none;
+            /* Hidden by default */
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
 
-.close-modal:hover { color: #ff6b35; }
+        .modal-content {
+            width: 90%;
+            max-width: 800px;
+            aspect-ratio: 16/9;
+            background: black;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 0 50px rgba(255, 107, 53, 0.2);
+            transform: scale(0.9);
+            transition: transform 0.4s ease;
+        }
 
-/* Animation classes triggered by JS */
-.modal-overlay.open { display: flex; opacity: 1; }
-.modal-overlay.open .modal-content { transform: scale(1); }
+        .close-modal {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            transition: color 0.3s;
+        }
 
-@media (max-width: 768px) {
-    .music-content {
-        flex-direction: column;
-        text-align: center;
-        gap: 2rem;
-    }
-    .music-info h2 { font-size: 2.5rem; }
-    .album-art { width: 220px; height: 220px; }
-}
+        .close-modal:hover {
+            color: #ff6b35;
+        }
+
+        /* Animation classes triggered by JS */
+        .modal-overlay.open {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-overlay.open .modal-content {
+            transform: scale(1);
+        }
+
+        @media (max-width: 768px) {
+            .music-content {
+                grid-template-columns: 1fr;
+                /* Stack on mobile */
+                gap: 4rem;
+            }
+        }
     </style>
-    
+
 </head>
 
 <body>
@@ -1697,51 +1714,82 @@
             <div class="hero-right">
                 <h3>The Common Ground.</h3>
                 <p class="ttcommons">
-                    For a long time, I struggled to fit into a single box. The world often tells us to niche down, to choose between being an engineer, an artist, or a writer but that binary never made sense to me. I’ve always found myself oscillating between different worlds that aren’t supposed to touch.
+                    For a long time, I struggled to fit into a single box. The world often tells us to niche down, to
+                    choose between being an engineer, an artist, or a writer but that binary never made sense to me.
+                    I’ve always found myself oscillating between different worlds that aren’t supposed to touch.
                     <br><br>
-                    One moment I am deep in the logic of designing circuit systems or architecting AI automations, and the next I am producing a hiphop track or writing an essay. I built this website because I needed a place where those fragmented interests could finally stop being distractions and start being a cohesive story.
+                    One moment I am deep in the logic of designing circuit systems or architecting AI automations, and
+                    the next I am producing a hiphop track or writing an essay. I built this website because I needed a
+                    place where those fragmented interests could finally stop being distractions and start being a
+                    cohesive story.
                 </p>
             </div>
         </div>
     </section>
     <section>
         <section class="music-section reveal" id="music">
-    <div class="music-bg"></div>
-    
-    <div class="music-content">
-        <img src="images/Red Typographic Electric Music Album Cover (1).png" alt="Cover Art" class="album-art">
-        
-        <div class="music-info">
-            <span class="music-label">Latest Drop</span>
-            <h2>Better Call Archit</h2>
-            <p class="ttcommons" style="max-width: 500px; color: #ccc; font-size: 1.1rem; line-height: 1.5;">
-                Tujhse sach bolna hai toh you better call Archit, <br>
-                Tujhe maafi maangni ho toh you better call Archit
-            </p>
-            
-            <button class="play-btn" onclick="openMusicModal()">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M8 5v14l11-7z"/>
-                </svg>
-                Listen Now
-            </button>
-        </div>
-    </div>
-</section>
+            <div class="music-bg"></div>
 
-<div class="modal-overlay" id="musicModal">
-    <div style="position: relative; width: 100%; max-width: 800px;">
-        <button class="close-modal" onclick="closeMusicModal()">&times;</button>
-        <div class="modal-content">
-            <iframe id="yt-player" width="100%" height="100%" 
-                src="https://www.madver.se/bettercallarchit?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnq66S45mF2Sew2QA2PAl0seOiF8NiyKyj_if5mvnkVcFxThkndzT4UDYT4Sw_aem_ASRQi6_EFjsduO7KoBK5jQ" 
-                title="Music Video" frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen>
-            </iframe>
+            <div class="music-content">
+
+                <div class="song-card">
+                    <img src="images/Red Typographic Electric Music Album Cover (1).png" alt="Better Call Archit"
+                        class="album-art">
+
+                    <div class="music-info">
+                        <span class="music-label">New Release</span>
+                        <h2>Better Call Archit</h2>
+                        <p class="ttcommons" style="max-width: 400px; color: #ccc; font-size: 1rem; line-height: 1.5;">
+                            Tujhse sach bolna hai toh you better call Archit, <br>
+                            Tujhe maafi maangni ho toh you better call Archit
+                        </p>
+
+                        <a class="play-btn" href="www.madver.se/bettercallarchit?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGn56qZkD_3dvuggWHLN7i50dpnIQxs6RXJFtPig4QiEe7tjLM7vqYdiPKAS3g_aem_QhLeYvMeOIoCF8cQ7-7ScQ">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8 5v14l11-7z" />
+                            </svg>
+                            Listen Now
+                        </a>
+                    </div>
+                </div>
+
+                <div class="song-card">
+                    <img src="images/koitohbatade.jpeg" alt="Koi Toh Batade"
+                        class="album-art">
+
+                    <div class="music-info">
+                        <span class="music-label">New Release</span>
+                        <h2>Koi Toh Batade</h2>
+                        <p class="ttcommons" style="max-width: 400px; color: #ccc; font-size: 1rem; line-height: 1.5;">
+                            Koi toh batade, Koi toh pata mera <br>
+                            Koi toh batade.
+                        </p>
+
+                        <a class="play-btn" href="https://www.madver.se/master/KoitohBatade?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGngroLvcGWXnfa8yi_RkDV5bsn-IJ6NDZzbnxWSGt-FY3cP0yNhqKpj_Ltn1E_aem_MdkcjARYdwxBTJuFnH0FFA">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8 5v14l11-7z" />
+                            </svg>
+                            Listen Now
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <div class="modal-overlay" id="musicModal">
+            <div style="position: relative; width: 100%; max-width: 800px;">
+                <button class="close-modal" onclick="closeMusicModal()">&times;</button>
+                <div class="modal-content">
+                    <iframe id="yt-player" width="100%" height="100%"
+                        src="" 
+                        title="Music Video" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
     </section>
 
 
@@ -1759,7 +1807,8 @@
                 <p class="about-description">
                     <b>Documentation of the process.</b>
                     I built this space to hold everything I create and explore. From designing complex circuit systems
-                    and building embedded projects to developing AI automations and thoughtful essays. At its core, this space exists to connect technical logic with creative rhythm.
+                    and building embedded projects to developing AI automations and thoughtful essays. At its core, this
+                    space exists to connect technical logic with creative rhythm.
                 </p>
             </div>
         </div>
@@ -1952,26 +2001,29 @@
     </section>
 
     <section class="categories-section reveal" id="projects">
-        <a class="category-card">
-            <img src="images/Gemini_Generated_Image_4i8a4w4i8a4w4i8a.png" alt="Print Editions" class="category-thumb">
-            <div class="category-title">Pushpak Vimaan</div>
+
+        <a href="automation.html" class="category-card">
+            <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2070" alt="AI Automation"
+                class="category-thumb">
+            <div class="category-title">AI Automation</div>
         </a>
 
-
-        <a class="category-card">
-            <img src="images/Gemini_Generated_Image_rn3m1brn3m1brn3m.png" alt="Print Editions" class="category-thumb">
-            <div class="category-title">6DOF ROBOTIC ARM</div>
+        <a href="webdev.html" class="category-card">
+            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070"
+                alt="Web Development" class="category-thumb">
+            <div class="category-title">Web Development</div>
         </a>
 
-        <a class="category-card">
-            <img src="images/Gemini_Generated_Image_unnrg7unnrg7unnr.png" alt="Print Editions" class="category-thumb">
-            <div class="category-title">Vayudoot Dashboard</div>
+        <a href="electronics.html" class="category-card">
+            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop"
+                alt="Electronics" class="category-thumb">
+            <div class="category-title">Electronics & Hardware</div>
         </a>
 
-
-        <a class="category-card">
-            <img src="images/Gemini_Generated_Image_hc2y32hc2y32hc2y.png" alt="Print Editions" class="category-thumb">
-            <div class="category-title">Smart extention board</div>
+        <a href="socialmedia.html" class="category-card">
+            <img src="https://images.unsplash.com/photo-1533750516457-a7f992034fec?q=80&w=2076&auto=format&fit=crop"
+                alt="Content Creation" class="category-thumb">
+            <div class="category-title">Content & Socials</div>
         </a>
 
     </section>
@@ -2118,30 +2170,29 @@
 
     </script>
     <script>
-    const modal = document.getElementById('musicModal');
-    const iframe = document.getElementById('yt-player');
-    const videoSrc = iframe.src; 
-
-    function openMusicModal() {
-        modal.classList.add('open');
-      
-        iframe.src = videoSrc + "&autoplay=1"; 
-    }
-
-    function closeMusicModal() {
-        modal.classList.remove('open');
-        // Stops the video audio by resetting the source
-        iframe.src = ""; 
-        iframe.src = videoSrc; 
-    }
-
-    // Close when clicking the dark background
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            closeMusicModal();
+        const modal = document.getElementById('musicModal');
+        const iframe = document.getElementById('yt-player');
+        
+        // Function now accepts the YouTube ID
+        function openMusicModal(videoId) {
+            modal.classList.add('open');
+            // Construct the URL with the specific ID and autoplay
+            iframe.src = `${videoId}`; 
         }
-    });
-</script>
+
+        function closeMusicModal() {
+            modal.classList.remove('open');
+            // Stop video
+            iframe.src = ""; 
+        }
+
+        // Close when clicking the dark background
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeMusicModal();
+            }
+        });
+    </script>
     <script>
         const videos = document.querySelectorAll('.category-video');
 
@@ -2178,6 +2229,7 @@
                     <a href="#">Home</a>
                     <a href="#about">About</a>
                     <a href="#projects">Projects</a>
+                    <a href="#music">Music</a>
                     <a href="contact.html">Contact</a>
                 </div>
 
